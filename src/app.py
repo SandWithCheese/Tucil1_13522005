@@ -8,7 +8,6 @@ class Result(customtkinter.CTkToplevel):
     def __init__(self, master, data):
         super().__init__(master)
         self.title("Cyberpunk 2077 Breach Protocol Solver Result")
-        self.attributes("-zoomed", True)
         self.grid_columnconfigure((0, 1), weight=1)
 
         self.result = None
@@ -100,7 +99,6 @@ class App(customtkinter.CTk):
         super().__init__()
 
         self.title("Cyberpunk 2077 Breach Protocol Solver")
-        self.attributes("-zoomed", True)
         self.grid_columnconfigure((0, 1), weight=1)
         self.grid_rowconfigure(0, weight=1)
 
@@ -202,5 +200,6 @@ class App(customtkinter.CTk):
 
 
 if __name__ == "__main__":
+    customtkinter.set_appearance_mode("dark")
     app = App()
     app.mainloop()
