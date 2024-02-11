@@ -53,7 +53,7 @@ def find_possible_paths(m, paths, sequences, weights):
     return max_path, max_weight
 
 
-def find_shortest_path(m, max_path, sequences, buffer_size):
+def find_shortest_path(m, max_path, sequences):
     short_path = []
     for i, path in enumerate(max_path):
         seq = ""
@@ -63,12 +63,13 @@ def find_shortest_path(m, max_path, sequences, buffer_size):
         found = False
         while not found:
             for s in sequences:
-                for token in s:
-                    if seq[-2:] == token:
+                s_path = "".join(s)
+                try:
+                    if seq[-len(s_path) :] == s_path:
                         found = True
                         break
-                if found:
-                    break
+                except IndexError:
+                    continue
             else:
                 seq = seq[:-2]
                 max_path[i] = max_path[i][:-1]
@@ -95,7 +96,7 @@ def brute_solve(data):
         data["m"], paths, data["sequences"], data["weights"]
     )
     shortest_path, shortest_coordinate = find_shortest_path(
-        data["m"], max_path, data["sequences"], data["buffer_size"]
+        data["m"], max_path, data["sequences"]
     )
 
     end = time.time()

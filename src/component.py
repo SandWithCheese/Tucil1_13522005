@@ -72,15 +72,15 @@ class FileUploadFrame(customtkinter.CTkFrame):
 
         self.button = customtkinter.CTkButton(self, text="Upload File")
         self.button.grid(row=1, column=0, padx=10, pady=10, sticky="ew")
-        self.button.configure(command=lambda filepath=".": self.open_file(filepath))
+        self.button.configure(command=self.open_file)
 
         self.text = customtkinter.CTkLabel(self, text="No file uploaded")
         self.text.grid(row=2, column=0, padx=10, pady=10, sticky="nsew")
 
-    def open_file(self, filepath):
+    def open_file(self):
         filetypes = [("text files", "*.txt")]
         f = customtkinter.filedialog.askopenfilename(
-            filetypes=filetypes, initialdir=filepath, title="Select file"
+            filetypes=filetypes, title="Select file"
         )
 
         if f:
