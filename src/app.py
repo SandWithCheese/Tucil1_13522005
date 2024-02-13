@@ -181,12 +181,12 @@ class App(customtkinter.CTk):
         sequences = []
         for i in range(sequences_count):
             sequence = []
-            for j in range(random.randint(1, sequences_max_length)):
+            for j in range(random.randint(2, sequences_max_length)):
                 sequence.append(random.choice(token))
 
             while sequence in sequences:
                 sequence = []
-                for j in range(random.randint(1, sequences_max_length)):
+                for j in range(random.randint(2, sequences_max_length)):
                     sequence.append(random.choice(token))
 
             sequences.append(sequence)

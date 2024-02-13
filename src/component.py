@@ -53,10 +53,6 @@ class InputFrame(customtkinter.CTkFrame):
         ]
         return {key: entry.get() for key, entry in zip(values, self.entries)}
 
-    def set(self, values):
-        for i, value in enumerate(values):
-            self.entries[i].set(value)
-
 
 class FileUploadFrame(customtkinter.CTkFrame):
     def __init__(self, master, title):
