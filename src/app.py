@@ -44,6 +44,18 @@ class Result(customtkinter.CTkToplevel):
 
         if self.result is not None:
             shortest_coordinate = self.result["shortest_coordinate"]
+            if shortest_coordinate is None:
+                self.error_label = customtkinter.CTkLabel(
+                    self,
+                    text="No path found!",
+                    fg_color="red",
+                    corner_radius=6,
+                )
+                self.error_label.grid(
+                    row=3, column=0, padx=10, pady=10, sticky="ew", columnspan=2
+                )
+                return
+
             for coordinate in shortest_coordinate:
                 self.matrix_frame.configure_cell(coordinate[0], coordinate[1])
 
@@ -89,7 +101,7 @@ class Result(customtkinter.CTkToplevel):
                         f.write(f"{coordinate[1] + 1},{coordinate[0] + 1}\n")
 
                     f.write("\n")
-                    f.write(f"{result['time']:.3f} seconds\n")
+                    f.write(f"{result['time']:.3f} ms\n")
             except Exception as e:
                 print(e)
 

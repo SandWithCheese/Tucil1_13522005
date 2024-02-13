@@ -254,7 +254,7 @@ class ResultFrame(customtkinter.CTkScrollableFrame):
         label3.grid(row=3, column=0, padx=10, pady=10, sticky="ew")
 
         entry3 = customtkinter.CTkEntry(self)
-        entry3.insert(0, f"{self.result['time']:.3f} seconds")
+        entry3.insert(0, f"{self.result['time']:.3f} ms")
         entry3.grid(row=3, column=1, padx=10, pady=10, sticky="ew")
         entry3.configure(state="disabled")
 

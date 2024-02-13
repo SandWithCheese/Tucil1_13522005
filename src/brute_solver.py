@@ -50,6 +50,9 @@ def find_possible_paths(m, paths, sequences, weights):
         elif weight == max_weight:
             max_path.append(path)
 
+    if max_weight == 0:
+        max_path = []
+
     return max_path, max_weight
 
 
@@ -75,6 +78,9 @@ def find_shortest_path(m, max_path, sequences):
                 max_path[i] = max_path[i][:-1]
 
         short_path.append(seq)
+
+    if len(short_path) == 0:
+        return None, None
 
     shortest_path = min(short_path, key=len)
     shortest_coordinate = max_path[short_path.index(shortest_path)]
@@ -105,5 +111,5 @@ def brute_solve(data):
         "shortest_path": shortest_path,
         "shortest_coordinate": shortest_coordinate,
         "max_weight": max_weight,
-        "time": end - start,
+        "time": (end - start) * 1000,
     }

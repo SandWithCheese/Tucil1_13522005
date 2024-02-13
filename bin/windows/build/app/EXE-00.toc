@@ -78,7 +78,7 @@
  [],
  False,
  False,
- 1707798306,
+ 1707801222,
  [('runw.exe',
    'C:\\Users\\Ahmad Naufal '
    'Ramadan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\runw.exe',
